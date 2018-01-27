@@ -14,8 +14,11 @@ a:hover {
 }
 
 .container {
-    width: 800px;
+    width: 700px;
+    max-width: 100%;
     margin: auto;
+    padding: 0 40px;
+    box-sizing: border-box;
 }
 
 .right {
@@ -122,13 +125,30 @@ article {
     border-bottom: 0px solid rgba(185, 185, 185, 0);
 	transform: translateY(150px);
 	opacity: 0;
-	transition: all .45s $cubic, opacity 0.5s ease-in, border 2s ease;
+    //transition: all .45s $cubic, opacity 0.5s ease-in, border 2s ease;
+    @include animation( 'article-anim 0.45s normal forwards');
+    animation-timing-function: $cubic;
 }
 
+@include keyframes(article-anim) {
+	0% {
+        transform: translateY(150px);
+        opacity: 0;
+        border-bottom: 0px solid rgba(185, 185, 185, 0);
+	}
+
+	100% {
+        transform: translateY(0);
+        opacity: 1;
+        border-bottom: 1px solid rgba(185, 185, 185, 0.2);
+	}
+}
+
+
 article.r {
-	transform: translateY(0);
-	opacity: 1;
-	border-bottom: 1px solid rgba(185, 185, 185, 0.2);
+	// transform: translateY(0);
+	// opacity: 1;
+	// border-bottom: 1px solid rgba(185, 185, 185, 0.2);
 }
 
 article.fall {
@@ -142,11 +162,9 @@ article:last-of-type {
 article h2 {
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 0px;
-    font-size: 36px;
-    font-weight: normal !important;
+    font-size: 30px;
     position: relative;
-	transform: translateY(-30px);
-	transform-delay: 0.2s;
+	//transform: translateY(-30px);
 	transition: all 0.35s ease-in;
 }
 
@@ -235,8 +253,6 @@ footer {
     letter-spacing: 1px;
     overflow: hidden;
 }
-
-footer i {}
 
 @media (max-width: 850px) {
     .content {

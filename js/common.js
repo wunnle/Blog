@@ -1,22 +1,10 @@
-$(document).ready(function() {
-    $("body").addClass("r");
-    headerSwipe();
-
-    for (i = 0; i < $("article").length; i++) {
-        setDelay(i, 'r', 215);
-    }
-
-});
+document.querySelectorAll('article').forEach(function(el, i) {
+    console.log(el)
+    el.style.animationDelay = 0.3 * i + 's'
+})
 
 function headerSwipe() {
     setTimeout(function() {
-        console.log('ITS TIME!');
-        $('header a').addClass('goLeft');
+        document.querySelector('header a').classList.add('goLeft')
     }, 2000);
-}
-
-function setDelay(i, className, interval) {
-    setTimeout(function() {
-        $("body").find('article').eq(i).addClass(className);
-    }, i * interval)
 }
