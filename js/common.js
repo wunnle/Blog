@@ -1,6 +1,6 @@
 document.querySelectorAll('article').forEach(function(el, i) {
     console.log(el)
-    el.style.animationDelay = 0.3 * i + 's'
+    el.style.animationDelay = 0.2 * i + 's'
 })
 
 function headerSwipe() {
